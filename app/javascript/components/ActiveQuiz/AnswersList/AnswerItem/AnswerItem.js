@@ -3,9 +3,9 @@ import classes from './AnswerItem.module.sass'
 
 const AnswerItem = props => {
   return (
-      <li className={classes.AnswerItem}>
-          { props.answer.text }
-      </li>
+    <li className={classes.AnswerItem}>
+      { props.answer.text }
+    </li>
   )
 };
 
