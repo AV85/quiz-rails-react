@@ -55,7 +55,7 @@ class Quiz extends Component {
       this.setState({
         answerState: {[answerId]: 'success'},
         results
-      })
+      });
       const timeout = window.setTimeout(() => {
         if (this.isQuizFinished()) {
           this.setState({
@@ -91,6 +91,10 @@ class Quiz extends Component {
       results: {}
     })
   };
+
+  componentDidMount() {
+    console.log('Quiz ID = ', this.props.match.params.id)
+  }
 
   render() {
     return (
