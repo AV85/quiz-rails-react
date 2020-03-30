@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './Input.module.sass'
 
-function isInvalid(valid, touched, shouldValidate) {
+function isInvalid({valid, touched, shouldValidate}) {
   return !valid && shouldValidate && touched
 }
 

@@ -11,6 +11,7 @@ function validateEmail(email) {
 class Auth extends Component {
 
   state = {
+    isFormValid: false,
     formControls: {
       email: {
         value: '',
@@ -83,8 +84,14 @@ class Auth extends Component {
 
     formControls[controlName] = control;
 
+    let isFormValid = true;
+
+    Object.keys(formControls).forEach(name=> {
+      isFormValid = formControls[name].valid && isFormValid
+    });
+
     this.setState({
-      formControls
+      formControls, isFormValid
     })
   };
 
@@ -116,12 +123,18 @@ class Auth extends Component {
 
             {this.renderInputs()}
 
-            <Button type="success" onClick={this.signInHandler}
+            <Button
+              type="success"
+              onClick={this.signInHandler}
+              disabled={!this.state.isFormValid}
             >
               Sign in
             </Button>
 
-            <Button type="primary" onClick={this.signUpHandler}
+            <Button
+              type="primary"
+              onClick={this.signUpHandler}
+              disabled={!this.state.isFormValid}
             >
               Sign up
             </Button>
