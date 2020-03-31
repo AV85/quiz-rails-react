@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import classes from './QuizList.module.sass'
 import {NavLink} from "react-router-dom";
+import axios from 'axios-on-rails'
 
 class QuizList extends Component {
 
@@ -15,6 +16,12 @@ class QuizList extends Component {
           </NavLink>
         </li>
       )
+    })
+  }
+
+  componentDidMount() {
+    axios.get('/quiz-list').then((response) => {
+      console.log(response.data)
     })
   }
 
